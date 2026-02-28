@@ -1,0 +1,13 @@
+{
+  "request_id": "req_123",
+  "policy_text": "Home infusion therapy for intravenous antibiotics is covered when prescribed by a physician and administered by a licensed home health provider. Coverage includes necessary supplies and equipment required for safe administration.",
+  "hcpcs_catalog": [
+    { "code": "J3490", "description": "Unclassified drugs" },
+    { "code": "S9494", "description": "Home infusion therapy, antibiotic, intravenous" },
+    { "code": "E0776", "description": "IV pole" },
+    { "code": "A4223", "description": "Supplies for maintenance of IV infusion pump" }
+  ],
+  "options": {
+    "max_codes": 3
+  }
+}
