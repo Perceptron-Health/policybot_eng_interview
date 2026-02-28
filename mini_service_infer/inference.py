@@ -92,15 +92,6 @@ def infer_rag_llm(
     ]
 
 
-## added
-def infer_ensemble(policy_text: str, hcpcs_catalog: List[Dict[str, str]]):
-    keyword_codes = infer_keyword_match(policy_text, hcpcs_catalog)
-    rag_codes = infer_rag_llm(policy_text, hcpcs_catalog)
-    ensemble_codes = keyword_codes + rag_codes
-    ensemble_codes.sort(key=lambda x: x["confidence"], reverse=True)
-    return ensemble_codes
-
-
 def run_inference(payload: Dict[str, Any]) -> Dict[str, Any]:
     """
     accepts a single strategy (default keyword match).
@@ -123,10 +114,6 @@ def run_inference(payload: Dict[str, Any]) -> Dict[str, Any]:
     elif strategy == "rag_llm":
         codes = infer_rag_llm(policy_text, hcpcs_catalog)[:max_codes]
         method = {"strategy": "rag_llm", "model": "mock-llm", "prompt_id": "mock_v1"}
-    ## added
-    elif strategy == "ensemble":
-        codes = infer_ensemble(policy_text, hcpcs_catalog)[:max_codes]
-        method = {"strategy": "ensemble", "model": "mock-llm", "prompt_id": "mock_v1"}
     else:
         raise ValueError(f"Unknown strategy: {strategy}")
 
