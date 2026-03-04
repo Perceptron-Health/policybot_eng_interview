@@ -1,7 +1,7 @@
 # Policybot Pairing Mini-Service (CLI)
 The HCPCS inference service can infer HCPCS codes relevant to a policy text using either keyword match- or LLM-based strategies.
 
-## 
+## Run service
 ```bash
 python main.py --input sample_input.json
 ```
